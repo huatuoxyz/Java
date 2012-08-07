@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.action.extension" value="action" />
+	<!--
+	<constant name="struts.locale" value="ja_JP"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.i18n.reload" value="true" />
+	-->
+	
+  	<package name="sample01" namespace="/sample01" extends="struts-default">
+    	<action name="Hello" class="struts2.sample01.HelloAction">
+	  		<result name="success">/jsp/sample01/hello.jsp</result>
+		</action>
+	</package>
+	
+  	<package name="sample04" namespace="/sample04" extends="struts-default">
+		<action name="Index" class="struts2.sample04.IndexAction">
+    		<result name="success">/jsp/sample04/index.jsp</result>
+		</action>
+		
+		<action name="Textfield" class="struts2.sample04.TextfieldAction">
+    		<result name="success">/jsp/sample04/textfield.jsp</result>
+		</action>
+		
+		<action name="Checkbox" class="struts2.sample04.CheckboxAction">
+    		<result name="success">/jsp/sample04/checkbox.jsp</result>
+		</action>
+		
+		<action name="Checkboxlist" class="struts2.sample04.CheckboxlistAction">
+    		<result name="success">/jsp/sample04/checkboxlist.jsp</result>
+		</action>
+		
+		<action name="Radio" class="struts2.sample04.RadioAction">
+    		<result name="success">/jsp/sample04/radio.jsp</result>
+		</action>
+		
+		<action name="Select" class="struts2.sample04.SelectAction">
+    		<result name="success">/jsp/sample04/select.jsp</result>
+		</action>
+		
+		<action name="Combobox" class="struts2.sample04.ComboboxAction">
+    		<result name="success">/jsp/sample04/combobox.jsp</result>
+		</action>
+		
+		<action name="Tab" class="struts2.sample04.TabAction">
+    		<result name="success">/jsp/sample04/tab.jsp</result>
+		</action>
+		
+		<action name="Tree" class="struts2.sample04.TreeAction">
+    		<result name="success">/jsp/sample04/tree.jsp</result>
+		</action>
+		
+		<action name="Calendar" class="struts2.sample04.CalendarAction">
+    		<result name="success">/jsp/sample04/calendar.jsp</result>
+		</action>
+		
+	</package>
+	
+	
+</struts>

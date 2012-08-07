@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	
+	<field name="user.email">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>メールアドレスを入力してください。</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>メールアドレスを正しく入力してください。</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>パスワードは必須入力項目です。</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>名前は必須入力項目です。</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.birthday">
+		<field-validator type="required">
+			<param name="trim">true</param>
+			<message>誕生日を入力してください。</message>
+		</field-validator>
+		<field-validator type="date">
+			<message>誕生日を日付型で入力してください。</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.gender">
+		<field-validator type="required">
+			<param name="trim">true</param>
+			<message>性別を選択してください。</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">2</param>
+			<message>性別を選択してください。</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.website">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>ウェブサイトを入力してください。</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<message>ウェブサイトを5文字以下入力してください。</message>
+		</field-validator>
+	</field>
+	
+</validators> 

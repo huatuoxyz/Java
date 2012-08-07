@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="hibernate.dao.Person" table="Person">
+        <id name="id" type="int" unsaved-value="-1" >
+            <column name="id" sql-type="number" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+        <property name="name" />
+        <set name="books" table="Person_Books" inverse="true">
+            <key column="personid" />
+            <many-to-many class="hibernate.dao.Book" column="isbn" />
+        </set>
+    </class>
+</hibernate-mapping>

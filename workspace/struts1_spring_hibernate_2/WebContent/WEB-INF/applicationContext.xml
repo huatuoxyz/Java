@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/database.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	-->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	
+		<property name="driverClassName">
+			<value>${database.connection.driver_class}</value>
+		</property>
+		<property name="url">
+			<value>${database.connection.url}</value>
+		</property>
+		<property name="username">
+			<value>${database.connection.username}</value>
+		</property>
+		<property name="password">
+			<value>${database.connection.password}</value>
+		</property>
+	</bean>
+
+
+	<!-- Transaction -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<bean id="ProxyTemplate" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="bookInfoService" parent="ProxyTemplate">
+		<property name="target">
+			<bean class="book.service.BookInfoServiceImpl">
+				<property name="bookInfoDao">
+					<ref bean="bookInfoDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- Struts Action -->
+	<bean name="/BookListAction" class="book.action.BookListAction">
+		<property name="service">
+			<ref bean="bookInfoService" />
+		</property>
+	</bean>
+	
+	<bean name="/BookViewAction" class="book.action.BookViewAction">
+		<property name="service">
+			<ref bean="bookInfoService" />
+		</property>
+	</bean>
+
+	<bean name="/BookFormAction" class="book.action.BookFormAction">
+		<property name="service">
+			<ref bean="bookInfoService" />
+		</property>
+	</bean>
+	<bean name="/BookStoreAction" class="book.action.BookStoreAction">
+		<property name="service">
+			<ref bean="bookInfoService" />
+		</property>
+	</bean>
+	<bean name="/BookDestroyAction" class="book.action.BookDestroyAction">
+		<property name="service">
+			<ref bean="bookInfoService" />
+		</property>
+	</bean>
+
+</beans>

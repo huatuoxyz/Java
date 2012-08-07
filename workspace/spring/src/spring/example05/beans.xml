@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+  "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  <bean id="exampleBean" class="spring.example05.ExampleBean">
+  <property name="list">
+    <list>
+      <value>list 1</value>
+      <value>list 2</value>
+    </list>
+  </property>
+  <property name="map">
+    <map>
+      <entry key="mapKey1">
+        <value>map 1</value>
+      </entry>
+      <entry key="mapKey2">
+        <value>map 2</value>
+      </entry>
+    </map>
+  </property>
+  <property name="set">
+    <set>
+      <value>set 1</value>
+      <value>set 2</value>
+    </set>
+  </property>
+  <property name="properties">
+    <props>
+      <prop key="propKey1">prop 1</prop>
+      <prop key="propKey2">prop 2</prop>
+    </props>
+  </property>
+  </bean>
+  
+</beans>

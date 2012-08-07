@@ -1,0 +1,6 @@
+struts 2.0.11
+hibernate 3
+mysql 5.1.37
+tomcat 6
+
+struts2 + hibernate example

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>servlet_jsp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+	
+    <filter-name>EncodeFilter</filter-name>
+	<filter-class>book.SetCharacterEncodingFilter</filter-class>
+	<init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodeFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <servlet>
+    <servlet-name>BookList</servlet-name>
+    <servlet-class>book.BookListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookList</servlet-name>
+    <url-pattern>/BookList</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BookCreate</servlet-name>
+    <servlet-class>book.BookCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookCreate</servlet-name>
+    <url-pattern>/BookCreate</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BookDestroy</servlet-name>
+    <servlet-class>book.BookDestroyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookDestroy</servlet-name>
+    <url-pattern>/BookDestroy</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BookView</servlet-name>
+    <servlet-class>book.BookViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookView</servlet-name>
+    <url-pattern>/BookView</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BookUpdate</servlet-name>
+    <servlet-class>book.BookUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookUpdate</servlet-name>
+    <url-pattern>/BookUpdate</url-pattern>
+  </servlet-mapping>
+
+</web-app>

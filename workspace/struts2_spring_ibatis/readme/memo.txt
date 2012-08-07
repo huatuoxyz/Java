@@ -1,0 +1,4 @@
+log4j.dtd は logging-log4j-1.2.14\src\java\org\apache\log4j\xml にある。
+
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+trueにしないと、action!method か認識されない。

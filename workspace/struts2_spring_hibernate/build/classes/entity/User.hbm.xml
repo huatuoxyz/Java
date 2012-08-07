@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="entity.User" table="users">
+     <id
+        name="email"
+        type="string"
+        column="email"
+        length="50"
+       >
+        <!--generator class="native" /-->
+    </id>
+    <property
+        name="password"
+        type="string"
+        column="password"
+        length="50"
+    />
+    <property
+        name="name"
+        type="string"
+        column="name"
+        length="50"
+    />
+    <property
+        name="birthday"
+        type="date"
+        column="birthday"
+    />
+    <property
+        name="gender"
+        type="integer"
+        column="gender"
+        length="4"
+    />
+    <property
+        name="website"
+        type="string"
+        column="website"
+        length="200"
+    />
+    
+    
+    <!-- also can configure hibernate lazy here  lazy="false" 
+    to hql it's not necessary-->
+    <!--
+    <many-to-one name="department" column="departmentid" class="com.gedero.hibernate.bean.Department"/>
+    -->
+    
+    </class>
+     
+</hibernate-mapping>

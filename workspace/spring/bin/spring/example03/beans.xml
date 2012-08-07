@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+  "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  <bean id="king" class="spring.example03.Person">
+  <property name="name">
+    <value>金東日</value>
+  </property>
+  <property name="player">
+    <ref bean="player"/>
+  </property>
+  </bean>
+  <bean id="player" class="spring.example03.Player"/>
+
+</beans>

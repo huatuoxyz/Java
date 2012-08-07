@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="bean.Employee" table="employee">
+     <id
+        name="employeeId"
+        type="integer"
+        column="employeeid"
+        length="10"
+       >
+        <generator class="native" />
+    </id>
+     <property
+        name="age"
+        type="integer"
+        column="age"
+        length="10"
+    />
+    <property
+        name="firstName"
+        type="string"
+        column="firstname"
+        length="256"
+    />
+    <property
+        name="lastName"
+        type="string"
+        column="lastname"
+        length="256"
+    />
+    <!-- also can configure hibernate lazy here  lazy="false" 
+    to hql it's not necessary-->
+    <many-to-one name="department" column="departmentid" class="bean.Department"/>
+     </class>
+</hibernate-mapping>

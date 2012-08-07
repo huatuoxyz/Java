@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Server port="8005" shutdown="SHUTDOWN">
+
+  <Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/>
+  <Listener className="org.apache.catalina.core.JasperListener"/>
+  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener"/>
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+
+  <GlobalNamingResources>
+    <Resource auth="Container" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="UserDatabase" pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase"/>
+  </GlobalNamingResources>
+  <Service name="Catalina">
+  
+    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+
+
+    <Engine defaultHost="localhost" name="Catalina">
+
+      <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
+
+      <!-- Define the default virtual host
+           Note: XML Schema validation will not work with Xerces 2.2.
+       -->
+      <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true" xmlNamespaceAware="false" xmlValidation="false">
+
+	  <Context docBase="servlet_jsp" path="/servlet_jsp" reloadable="true" source="org.eclipse.jst.jee.server:servlet_jsp">
+	       	<!-- データソース設定 -->
+        	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/servlet" password="king" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/king_db?autoReconnect=true" username="king"/>
+	  </Context>
+	  
+	  </Host>
+	  
+    </Engine>
+  </Service>
+
+</Server>

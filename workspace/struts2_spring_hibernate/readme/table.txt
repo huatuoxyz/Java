@@ -1,0 +1,9 @@
+CREATE TABLE users (
+  email varchar(50) NOT NULL,
+  password varchar(50) NOT NULL,
+  name varchar(50) NOT NULL,
+  birthday date DEFAULT NULL,
+  gender tinyint(4) DEFAULT NULL,
+  website varchar(200) DEFAULT NULL,
+  PRIMARY KEY (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

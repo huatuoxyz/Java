@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <action name="user" class="userAction">
+            <result name="input">/jsp/user/edit.jsp</result>
+            <result name="list">/jsp/user/list.jsp</result>
+            <result name="new">/jsp/user/edit.jsp</result>
+            <result name="edit">/jsp/user/edit.jsp</result>
+            <result name="show">/jsp/user/show.jsp</result>
+            <result name="create" type="redirect">user</result>
+            <result name="update" type="redirect">user</result>
+            <result name="delete" type="redirect">user</result>
+        </action>
+        
+    </package>
+
+</struts>
